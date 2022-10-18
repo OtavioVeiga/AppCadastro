@@ -7,6 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.example.fragments.CadastrarClienteFragment;
+import com.example.fragments.CadastrarFornecedorFragment;
+import com.example.fragments.CadastrarProdutosFragment;
+import com.example.fragments.ListagemClientesFragment;
+import com.example.fragments.ListagemFornecedorFragment;
+import com.example.fragments.ListagemProdutosFragment;
+
 public class SecondActivity extends AppCompatActivity {
 
     Button botaoListagem;
@@ -34,17 +41,17 @@ public class SecondActivity extends AppCompatActivity {
             }
 
             case 0:{
-                transaction.add(R.id.fragmentoPrincipal, );
+                transaction.add(R.id.fragmentoPrincipal, new ListagemProdutosFragment());
                 break;
             }
 
             case 1:{
-                transaction.add(R.id.fragmentoPrincipal, );
+                transaction.add(R.id.fragmentoPrincipal, new ListagemClientesFragment());
                 break;
             }
 
             case 2:{
-                transaction.add(R.id.fragmentoPrincipal, );
+                transaction.add(R.id.fragmentoPrincipal, new ListagemFornecedorFragment());
                 break;
             }
         }
@@ -59,12 +66,15 @@ public class SecondActivity extends AppCompatActivity {
             public void onClick(View view) {
                 switch (tipoOperacao){
                     case 0:{
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentoPrincipal, new CadastrarProdutosFragment()).commit();
                         break;
                     }
                     case 1:{
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentoPrincipal, new CadastrarClienteFragment()).commit();
                         break;
                     }
                     case 2:{
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragmentoPrincipal, new CadastrarFornecedorFragment()).commit();
                         break;
                     }
                 }
